@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv='X-UA-Compatible', content='ie=edge'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <title>REST API</title>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        
+    <div class="row">
+        <div class="col-md-3">
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            ADD
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <form action="/contact/add" method="post">
+                                <div class="form-group">
+                                    <input class="form-control col-md-12" type="text" placeholder="First Name" name="fname" autofocus="autofocus" required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control col-md-12" type="text" placeholder="Last Name" name="lname" required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control col-md-12" type="text" placeholder="Phone Number" name="pnumber" required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control col-md-12" type="text" placeholder="Address" name="address" required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control col-md-12" type="text" placeholder="Email" name="email" required="required"/>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Add</button>
+                            </form>  
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            UPDATE
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <form action="/contact/update" method="post">
+                                <div class="form-group">
+                                    <input class="form-control col-md-12" type="text" placeholder="Which ID do you want to update" name="id" required="required"/>
+                                </div>
+                                <hr/>
+                                <div class="form-group">
+                                    <input class="form-control col-md-12" type="text" placeholder="First Name" name="fname" autofocus="autofocus" required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control col-md-12" type="text" placeholder="Last Name" name="lname" required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control col-md-12" type="text" placeholder="Phone Number" name="pnumber" required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control col-md-12" type="text" placeholder="Address" name="address" required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control col-md-12" type="text" placeholder="Email" name="email" required="required"/>
+                                </div>
+                                <button class="btn btn-success" type="submit">Update</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            DELETE
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <form action="/contact/delete" method="post">
+                                <div class="form-group">
+                                    <input class="form-control col-md-12" type="text" placeholder="Which ID do you want to delete" name="id" required="required"/>
+                                </div>
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">FName</th>
+                        <th scope="col">LName</th>
+                        <th scope="col">Phone#</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Registration</th>
+                    </tr>
+                </thead>
+                <tbody id="output">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            function showData(){
+                $('#output').empty();
+                $.getJSON('/contact', function(value){
+                    $(value).each(function(index, contact){
+                        var rows = '';
+                        rows += '<tr>';
+                        /* Have to put each object.Column Name */
+                        rows += '<td>' + contact.ID + '</td>';
+                        rows += '<td>' + contact.FNAME + '</td>';
+                        rows += '<td>' + contact.LNAME + '</td>';
+                        rows += '<td>' + contact.PNUMBER + '</td>';
+                        rows += '<td>' + contact.ADDRESS + '</td>';
+                        rows += '<td>' + contact.EMAIL + '</td>';
+                        rows += '<td>' + contact.REGISTRATION + '</td>';
+                        rows += '</tr>';
+                        $('#output').append(rows);
+                    });
+                });
+            }
+            showData();
+        });
+    </script>
+  </body>
+</html>
